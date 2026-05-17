@@ -72,6 +72,63 @@ Frontend:
 
 ## Deploiement
 
+### Backend Render
+
+Le repo contient un `render.yaml` a la racine du repository. Il declare:
+
+- un service web `expense-tracker-api`;
+- une base PostgreSQL `expense-tracker-db`;
+- `rootDir: expense-tracker/backend`;
+- `buildCommand: bash build.sh`;
+- `preDeployCommand: python manage.py migrate`;
+- `startCommand: gunicorn config.wsgi:application`;
+- `healthCheckPath: /api/health/`.
+
+Dans Render:
+
+1. Creer un nouveau Blueprint depuis le repo GitHub.
+2. Choisir la branche `expense-tracker`.
+3. Laisser Render lire `render.yaml`.
+4. Apres le premier deploy backend, copier l'URL publique du backend.
+
+Variables importantes deja prevues:
+
+- `DATABASE_URL`
+- `SECRET_KEY`
+- `DEBUG=False`
+- `ALLOWED_HOSTS`
+- `CORS_ALLOWED_ORIGINS`
+- `CORS_ALLOWED_ORIGIN_REGEXES`
+- `CSRF_TRUSTED_ORIGINS`
+
+### Frontend Vercel
+
+Importer le meme repo GitHub dans Vercel avec:
+
+- Branch: `expense-tracker`
+- Root Directory: `expense-tracker/frontend`
+- Framework Preset: Vite
+- Build Command: `npm run build`
+- Output Directory: `dist`
+- Environment Variable: `VITE_API_URL=https://votre-backend.onrender.com/api`
+
+Le fichier `frontend/vercel.json` ajoute une rewrite SPA vers `index.html`, necessaire pour React Router.
+
+### Connexion backend/frontend
+
+Quand Vercel donne l'URL frontend finale, mettre a jour dans Render:
+
+- `CORS_ALLOWED_ORIGINS=https://votre-frontend.vercel.app`
+- `CSRF_TRUSTED_ORIGINS=https://votre-frontend.vercel.app`
+
+Le `render.yaml` contient aussi une regex qui autorise les domaines Vercel preview:
+
+```text
+^https://.*\.vercel\.app$
+```
+
+### Anciennes notes rapides
+
 Frontend Vercel:
 
 - Build command: `npm run build`
