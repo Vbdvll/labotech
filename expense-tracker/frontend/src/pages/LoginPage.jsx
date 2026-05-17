@@ -36,8 +36,10 @@ export function LoginPage() {
           {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
         </button>
       </div>
-      <div className="text-right">
-        <Link className="text-sm font-medium text-mint" to="/forgot-password">Mot de passe oublie ?</Link>
+      <div className="rounded-lg border border-line bg-white/[0.03] px-3 py-2 text-center">
+        <Link className="text-sm font-semibold text-mint hover:underline" to="/forgot-password">
+          Mot de passe oublie ? Recuperer l&apos;acces
+        </Link>
       </div>
       <Button className="w-full" loading={isSubmitting}>Se connecter</Button>
       <p className="text-center text-sm text-slate-400">
