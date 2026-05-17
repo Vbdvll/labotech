@@ -80,9 +80,10 @@ Le repo contient un `render.yaml` a la racine du repository. Il declare:
 - une base PostgreSQL `expense-tracker-db`;
 - `rootDir: expense-tracker/backend`;
 - `buildCommand: bash build.sh`;
-- `preDeployCommand: python manage.py migrate`;
 - `startCommand: gunicorn config.wsgi:application`;
 - `healthCheckPath: /api/health/`.
+
+Sur le plan gratuit Render, `preDeployCommand` n'est pas supporte. Les migrations sont donc lancees dans `backend/build.sh` apres `collectstatic`.
 
 Dans Render:
 

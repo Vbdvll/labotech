@@ -9,7 +9,6 @@ services:
     rootDir: expense-tracker/backend
     plan: free
     buildCommand: bash build.sh
-    preDeployCommand: python manage.py migrate
     startCommand: gunicorn config.wsgi:application
     healthCheckPath: /api/health/
     envVars:
