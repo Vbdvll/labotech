@@ -111,7 +111,7 @@ Importer le meme repo GitHub dans Vercel avec:
 - Framework Preset: Vite
 - Build Command: `npm run build`
 - Output Directory: `dist`
-- Environment Variable: `VITE_API_URL=https://votre-backend.onrender.com/api`
+- Environment Variable: `VITE_API_URL=https://expense-tracker-api-x3wx.onrender.com/api`
 
 Le fichier `frontend/vercel.json` ajoute une rewrite SPA vers `index.html`, necessaire pour React Router.
 
