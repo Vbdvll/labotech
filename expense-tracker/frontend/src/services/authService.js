@@ -13,4 +13,16 @@ export const authService = {
     const { data } = await api.get("/auth/me/");
     return data;
   },
+  async forgotPassword(payload) {
+    const { data } = await api.post("/auth/forgot-password/", payload);
+    return data;
+  },
+  async resetPassword(payload) {
+    const { data } = await api.post("/auth/reset-password/", payload);
+    return data;
+  },
+  async adminUsers() {
+    const { data } = await api.get("/admin/users/");
+    return data;
+  },
 };

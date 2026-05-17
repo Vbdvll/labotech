@@ -1,3 +1,5 @@
+import { Eye, EyeOff } from "lucide-react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -8,6 +10,8 @@ import { useAuth } from "../context/AuthContext";
 import { getApiErrorMessage } from "../utils/errors";
 
 export function RegisterPage() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const { register: registerUser } = useAuth();
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
@@ -33,12 +37,28 @@ export function RegisterPage() {
       </div>
       <Input label="Nom d'utilisateur" error={errors.username?.message} {...register("username", { required: "Champ requis" })} />
       <Input label="Email" type="email" error={errors.email?.message} {...register("email", { required: "Champ requis" })} />
-      <Input
-        label="Mot de passe"
-        type="password"
-        error={errors.password?.message}
-        {...register("password", { required: "Champ requis", minLength: { value: 8, message: "8 caracteres minimum" } })}
-      />
+      <div className="relative">
+        <Input
+          label="Mot de passe"
+          type={showPassword ? "text" : "password"}
+          error={errors.password?.message}
+          {...register("password", { required: "Champ requis", minLength: { value: 8, message: "8 caracteres minimum" } })}
+        />
+        <button type="button" className="absolute right-3 top-9 text-slate-400" onClick={() => setShowPassword((v) => !v)}>
+          {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+        </button>
+      </div>
+      <div className="relative">
+        <Input
+          label="Confirmer mot de passe"
+          type={showConfirmPassword ? "text" : "password"}
+          error={errors.password_confirm?.message}
+          {...register("password_confirm", { required: "Champ requis", minLength: { value: 8, message: "8 caracteres minimum" } })}
+        />
+        <button type="button" className="absolute right-3 top-9 text-slate-400" onClick={() => setShowConfirmPassword((v) => !v)}>
+          {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+        </button>
+      </div>
       <Button className="w-full" loading={isSubmitting}>S&apos;inscrire</Button>
       <p className="text-center text-sm text-slate-400">
         Deja un compte ? <Link className="font-semibold text-mint" to="/login">Connexion</Link>

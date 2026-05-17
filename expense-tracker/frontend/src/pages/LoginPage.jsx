@@ -1,3 +1,5 @@
+import { Eye, EyeOff } from "lucide-react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -7,6 +9,7 @@ import { Input } from "../components/common/Input";
 import { useAuth } from "../context/AuthContext";
 
 export function LoginPage() {
+  const [showPassword, setShowPassword] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
@@ -27,7 +30,15 @@ export function LoginPage() {
         <p className="mt-1 text-sm text-slate-400">Accedez a votre dashboard financier.</p>
       </div>
       <Input label="Nom d'utilisateur" error={errors.username?.message} {...register("username", { required: "Champ requis" })} />
-      <Input label="Mot de passe" type="password" error={errors.password?.message} {...register("password", { required: "Champ requis" })} />
+      <div className="relative">
+        <Input label="Mot de passe" type={showPassword ? "text" : "password"} error={errors.password?.message} {...register("password", { required: "Champ requis" })} />
+        <button type="button" className="absolute right-3 top-9 text-slate-400" onClick={() => setShowPassword((v) => !v)}>
+          {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+        </button>
+      </div>
+      <div className="text-right">
+        <Link className="text-sm font-medium text-mint" to="/forgot-password">Mot de passe oublie ?</Link>
+      </div>
       <Button className="w-full" loading={isSubmitting}>Se connecter</Button>
       <p className="text-center text-sm text-slate-400">
         Nouveau ? <Link className="font-semibold text-mint" to="/register">Creer un compte</Link>

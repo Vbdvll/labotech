@@ -1,12 +1,12 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
-import { BarChart3, FileText, LayoutDashboard, LogOut, Menu, WalletCards, X } from "lucide-react";
+import { BarChart3, FileText, LayoutDashboard, LogOut, Menu, Shield, WalletCards, X } from "lucide-react";
 import { useState } from "react";
 import clsx from "clsx";
 
 import { Button } from "../components/common/Button";
 import { useAuth } from "../context/AuthContext";
 
-const nav = [
+const baseNav = [
   { to: "/", label: "Dashboard", icon: LayoutDashboard },
   { to: "/expenses", label: "Depenses", icon: WalletCards },
   { to: "/reports", label: "Rapports", icon: FileText },
@@ -15,6 +15,7 @@ const nav = [
 export function AppLayout() {
   const { user, logout } = useAuth();
   const [open, setOpen] = useState(false);
+  const nav = user?.is_staff ? [...baseNav, { to: "/admin/users", label: "Admin", icon: Shield }] : baseNav;
 
   return (
     <div className="min-h-screen">
@@ -30,8 +31,8 @@ export function AppLayout() {
               <BarChart3 className="h-5 w-5" />
             </span>
             <span>
-              <span className="block text-sm font-semibold uppercase tracking-[0.2em] text-mint">Expense</span>
-              <span className="text-lg font-bold text-white">Tracker</span>
+              <span className="block text-sm font-semibold uppercase tracking-[0.2em] text-mint">Samakalpe</span>
+              <span className="text-lg font-bold text-white">Depenses</span>
             </span>
           </Link>
           <button className="rounded-lg p-2 text-slate-400 lg:hidden" onClick={() => setOpen(false)}>
@@ -74,7 +75,10 @@ export function AppLayout() {
             <button className="rounded-lg border border-line p-2 text-slate-300 lg:hidden" onClick={() => setOpen(true)}>
               <Menu className="h-5 w-5" />
             </button>
-            <div>
+            <div className="flex items-center gap-3">
+              <Link to="/" className="hidden rounded-lg border border-line px-2.5 py-1 text-sm font-semibold text-mint hover:bg-white/5 sm:block">
+                Samakalpe
+              </Link>
               <p className="text-xs uppercase tracking-[0.22em] text-slate-500">Finances personnelles</p>
               <h1 className="text-xl font-semibold text-white">Vue d&apos;ensemble</h1>
             </div>
