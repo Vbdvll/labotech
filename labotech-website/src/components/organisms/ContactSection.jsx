@@ -15,7 +15,9 @@ Décrivez-nous votre projet — nous répondons personnellement sous peu.
 </p>
 
 <a
-href="mailto:labotech221@gmail.com?subject=Projet%20digital%20—%20Labo%20Tech"
+href="https://mail.google.com/mail/?view=cm&fs=1&to=labotech221@gmail.com&su=Projet%20digital%20%E2%80%94%20Labo%20Tech"
+target="_blank"
+rel="noopener noreferrer"
 className='block w-full p-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:scale-[1.02] transition font-medium'
 >
 
@@ -25,6 +27,8 @@ Envoyer un email
 
 <a
 href="https://wa.me/221785822319"
+target="_blank"
+rel="noopener noreferrer"
 className='block w-full p-4 rounded-xl border border-green-500 text-green-400 hover:bg-green-500/10 transition'
 >
 
