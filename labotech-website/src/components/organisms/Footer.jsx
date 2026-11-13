@@ -62,7 +62,7 @@ Dakar, Sénégal
 </p>
 
 <p className='text-slate-400'>
-contact@labotech.com
+labotech221@gmail.com
 </p>
 <a
 href="https://wa.me/221785822319"

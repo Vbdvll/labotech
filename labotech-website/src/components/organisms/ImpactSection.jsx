@@ -1,3 +1,4 @@
+/* TODO: Section Impact Business supprimée de la page d'accueil - conservée mais non utilisée */
 export default function ImpactSection(){
 
 const stats = [

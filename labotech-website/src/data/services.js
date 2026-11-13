@@ -8,8 +8,8 @@ export const services = [
   },
   {
     icon: Smartphone,
-    title: "Applications mobiles",
-    description: "Apps Android et iOS performantes et scalables."
+    title: "Applications web et mobiles (mobile-first)",
+    description: "Conception d'applications responsive, de la landing page au outil de gestion."
   },
   {
     icon: Cloud,
@@ -18,8 +18,8 @@ export const services = [
   },
   {
     icon: Brain,
-    title: "Automatisation IA",
-    description: "Intégration de solutions IA pour optimiser vos processus."
+    title: "Automatisation IA & Workflows",
+    description: "Automatisation de workflows (n8n), résumés et traitement de messages par IA, analyse de données."
   },
   {
     icon: Cpu,

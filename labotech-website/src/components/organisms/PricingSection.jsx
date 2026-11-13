@@ -1,24 +1,29 @@
+/* TODO: Je confirmerai si ces tarifs sont réels (50 000 / 150 000 FCFA) */
+
 export default function PricingSection(){
 
 const plans = [
+
 {
 name: "Starter",
 price: "50 000 FCFA",
 features: [
 "Site vitrine simple",
 "Design responsive",
-"Support basique"
+"Suivi par WhatsApp"
 ]
 },
+
 {
 name: "Business",
 price: "150 000 FCFA",
 features: [
 "Site + fonctionnalités avancées",
 "SEO optimisé",
-"Support prioritaire"
+"Suivi par WhatsApp"
 ]
 },
+
 {
 name: "Premium",
 price: "Sur devis",
@@ -28,6 +33,7 @@ features: [
 "Accompagnement stratégique"
 ]
 }
+
 ]
 
 return(
@@ -44,8 +50,7 @@ Nos Offres
 
 <div
 key={index}
-className='p-8 rounded-3xl bg-white/5 border border-slate-800 hover:scale-105 transition'
->
+className='p-8 rounded-3xl bg-white/5 border border-slate-800 hover:scale-105 transition'>
 
 <h3 className='text-2xl font-bold mb-2'>
 {plan.name}
@@ -57,9 +62,7 @@ className='p-8 rounded-3xl bg-white/5 border border-slate-800 hover:scale-105 tr
 
 <ul className='space-y-2 text-slate-300 mb-6'>
 
-{plan.features.map((f,i)=>(
-<li key={i}>• {f}</li>
-))}
+{plan.features.map((f,i)=><li key={i}>{f}</li>)}
 
 </ul>
 
@@ -72,12 +75,13 @@ Choisir
 
 </div>
 
-))}
+))
+
+}
 
 </div>
 
 </section>
 
 )
-
 }

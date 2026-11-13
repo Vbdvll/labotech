@@ -1,11 +1,9 @@
 export default function AISection(){
 
 const features = [
-"Chatbots intelligents pour entreprises",
-"Automatisation WhatsApp business",
-"Analyse de données avancée",
-"Assistants IA personnalisés",
-"Optimisation des workflows"
+"Automatisation de workflows (n8n)",
+"Résumé et traitement de messages par IA",
+"Analyse de données"
 ]
 
 return(
@@ -23,7 +21,9 @@ IA & Automatisation
 key={index}
 className='p-6 rounded-2xl border border-slate-800 bg-gradient-to-r from-slate-900 to-slate-800'
 >
-🤖 {f}
+
+{f}
+
 </div>
 ))}
 
@@ -32,5 +32,4 @@ className='p-6 rounded-2xl border border-slate-800 bg-gradient-to-r from-slate-9
 </section>
 
 )
-
 }

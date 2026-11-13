@@ -1,5 +1,6 @@
 import StatCard from '../molecules/StatCard'
 
+/* TODO: Section statistiques supprimée de la page d'accueil - conservée mais non utilisée */
 export default function StatsSection(){
 
 const stats = [

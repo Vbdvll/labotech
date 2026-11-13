@@ -1,3 +1,4 @@
+/* TODO: Témoignages supprimés de la page d'accueil - section retirée du layout */
 export default function TestimonialsSection(){
 
 const testimonials = [
@@ -37,7 +38,7 @@ className='p-6 rounded-3xl bg-white/5 border border-slate-800'
 >
 
 <p className='text-slate-300 mb-6'>
-"{t.text}"
+{t.text}
 </p>
 
 <div className='font-bold'>

@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 {/* <WhatsAppButton /> */}
 export const metadata = {
-  title: "Labo Tech | Agence digitale & développement web",
-  description: "Création de sites web, applications mobiles, SaaS et solutions digitales au Sénégal.",
-  keywords: "agence web Dakar, développement web, SaaS, applications mobiles, Labo Tech",
+  title: "Labo Tech | Solutions digitales pour indépendants et PME à Dakar",
+  description: "Labo Tech conçoit des applications web et mobiles, des solutions SaaS et des automatisations pour les indépendants et petites entreprises au Sénégal. Produits : DevisFacture et MiniShop.",
+  keywords: "labotech, devisfacture, minshop, développement web, SaaS, Sénégal, indépendants, PME",
   openGraph: {
-    title: "Labo Tech",
-    description: "Solutions digitales modernes",
+    title: "Labo Tech | Solutions digitales pour indépendants et PME à Dakar",
+    description: "Labo Tech conçoit des applications web et mobiles, des solutions SaaS et des automatisations pour les indépendants et petites entreprises au Sénégal. Produits : DevisFacture et MiniShop.",
     type: "website"
   }
 }
