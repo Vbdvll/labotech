@@ -1,36 +1,4 @@
-'use client'
-import { sendEmail } from '@/lib/email'
-import { useState } from 'react'
-
 export default function ContactSection(){
-
-const [form,setForm]=useState({
-name:'',
-email:'',
-message:''
-})
-
-const handleChange=(e)=>{
-setForm({...form,[e.target.name]:e.target.value})
-}
-
-const handleSubmit = async (e) => {
-  e.preventDefault()
-
-  try {
-    await sendEmail(form)
-    alert("Message envoyé avec succès 🚀")
-
-    setForm({
-      name: '',
-      email: '',
-      message: ''
-    })
-
-  } catch (error) {
-    alert("Erreur lors de l'envoi")
-  }
-}
 
 return(
 
@@ -40,45 +8,37 @@ return(
 Contactez-nous
 </h2>
 
-<form
-onSubmit={handleSubmit}
-className='max-w-2xl mx-auto space-y-4 bg-white/5 border border-slate-800 p-8 rounded-3xl'
+<div className='max-w-2xl mx-auto bg-white/5 border border-slate-800 p-8 rounded-3xl text-center space-y-6'>
+
+<p className='text-slate-300 text-lg leading-relaxed'>
+Décrivez-nous votre projet — nous répondons personnellement sous peu.
+</p>
+
+<a
+href="mailto:labotech221@gmail.com?subject=Projet%20digital%20—%20Labo%20Tech"
+className='block w-full p-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:scale-[1.02] transition font-medium'
 >
 
-<input
-name='name'
-placeholder='Nom'
-onChange={handleChange}
-className='w-full p-4 rounded-xl bg-slate-900 outline-none'
-/>
+Envoyer un email
 
-<input
-name='email'
-placeholder='Email'
-onChange={handleChange}
-className='w-full p-4 rounded-xl bg-slate-900 outline-none'
-/>
+</a>
 
-<textarea
-name='message'
-placeholder='Votre projet...'
-onChange={handleChange}
-className='w-full p-4 rounded-xl bg-slate-900 h-32 outline-none'
-/>
-
-<button
-type='submit'
-className='w-full p-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:scale-[1.02] transition'
+<a
+href="https://wa.me/221785822319"
+className='block w-full p-4 rounded-xl border border-green-500 text-green-400 hover:bg-green-500/10 transition'
 >
 
-Envoyer le message
+Ou discuter sur WhatsApp
 
-</button>
+</a>
 
-</form>
+<p className='text-slate-500 text-sm'>
+labotech221@gmail.com — Dakar, Sénégal
+</p>
+
+</div>
 
 </section>
 
 )
-
 }
